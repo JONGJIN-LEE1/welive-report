@@ -538,7 +538,7 @@ async getPolls(user: User, queryDto: GetPollsDto) {
   
   **🙏 읽어주셔서 감사합니다 🙏**
   
-  *이 프로젝트는 Node.js와 TypeScript를 활용한 첫 번째 팀 프로젝트였지만,*  
+  *이 프로젝트는 Node.js와 TypeScript를 활용한 프로젝트로,*  
   *다양한 기술적 도전과 문제 해결 경험을 통해 한 단계 성장할 수 있었습니다.*
   
 </div>
