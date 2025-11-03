@@ -1,8 +1,8 @@
-# [welive project 개발 보고서]
+# [welive-project 개발 보고서]
 
-# 🏢 Welive - 스마트 아파트 운영 시스템 (주민 투표 모듈)
+## 🏢 Welive - 스마트 아파트 운영 시스템 (주민 투표 모듈)
 
-## 📋 목차
+### 📋 목차
 - [프로젝트 개요](#프로젝트-개요)
 - [기술 스택 및 개발 환경](#기술-스택-및-개발-환경)
 - [담당 API 및 기능 구현](#담당-api-및-기능-구현)
@@ -11,20 +11,20 @@
 
 ---
 
-## 프로젝트 개요
+### 프로젝트 개요
 
-### 🏗 Welive 프로젝트 소개
+#### 🏗 Welive 프로젝트 소개
 **Welive**는 입주민∙관리자∙슈퍼 어드민의 역할에 따라 맞춤형 기능을 제공하는 스마트 아파트 운영 시스템으로, 주민들과 아파트 관리 단체를 위한 상호 관리 플랫폼입니다.
 
 입주민 명부 관리, 민원 처리, 주민 투표, 공지사항 등록은 물론, 실시간 알림과 자동 승인 시스템까지 지원하여 복잡했던 아파트 관리 업무를 간편하고 효율적으로 바꿔드립니다.
 
-### 🎯 담당 모듈: 주민 투표 시스템
+#### 🎯 담당 모듈: 주민 투표 시스템
 아파트 단지 내 주민들이 온라인으로 안건에 대해 투표하고 의사결정에 참여할 수 있는 디지털 투표 시스템 구축
 
-### 📅 개발 기간
+#### 📅 개발 기간
 2025년 10월 ~ 11월 (약 1개월)
 
-### 🎭 나의 역할
+#### 🎭 나의 역할
 - **백엔드 개발자** - 주민 투표 시스템 전체 설계 및 구현
 - 투표 CRUD API 개발
 - 투표 참여/취소 기능 구현
@@ -33,9 +33,9 @@
 
 ---
 
-## 기술 스택 및 개발 환경
+### 기술 스택 및 개발 환경
 
-### 🛠 Backend Stack
+#### 🛠 Backend Stack
 ```
 Runtime     : Node.js
 Language    : TypeScript
@@ -46,7 +46,7 @@ Validation  : Zod
 Testing     : Jest + Supertest
 ```
 
-### 🏗 Architecture & Patterns
+#### 🏗 Architecture & Patterns
 - **레이어드 아키텍처** (Controller → Service with Repository)
   - Controller: HTTP 요청/응답 처리
   - Service: 비즈니스 로직 + TypeORM Repository 직접 활용
@@ -54,7 +54,7 @@ Testing     : Jest + Supertest
 - **의존성 주입** 패턴 활용
 - **트랜잭션 처리**를 통한 데이터 일관성 보장
 
-### 🔧 Development Tools
+#### 🔧 Development Tools
 ```yaml
 Version Control : Git & GitHub
 CI/CD          : GitHub Actions
@@ -65,9 +65,9 @@ Code Style     : ESLint + Prettier
 
 ---
 
-## 담당 API 및 기능 구현
+### 담당 API 및 기능 구현
 
-### 📊 투표 관리 API (Polls)
+#### 📊 투표 관리 API (Polls)
 
 #### 1. **투표 생성** `POST /api/polls`
 ```typescript
@@ -127,7 +127,7 @@ Code Style     : ESLint + Prettier
 - 관리자 전용
 - Soft Delete 방식
 
-### 🗳 투표 참여 API (Votes)
+#### 🗳 투표 참여 API (Votes)
 
 #### 1. **투표 참여** `POST /api/options/:optionId/vote`
 - Path Parameter: `optionId` (선택한 옵션 ID)
@@ -142,7 +142,7 @@ Code Style     : ESLint + Prettier
 - 투표 기간 내 취소 가능
 - 기존 투표 내역 완전 삭제
 
-### ⏰ 투표 스케줄러 API
+#### ⏰ 투표 스케줄러 API
 
 #### 1. **스케줄러 상태 확인** `GET /api/poll-scheduler/ping`
 ```json
@@ -157,7 +157,7 @@ Code Style     : ESLint + Prettier
 - 매시간 만료된 투표 자동 마감 처리
 - 마감된 투표 결과를 공지사항으로 자동 생성
 
-### 📝 Database Schema
+#### 📝 Database Schema
 
 ```sql
 -- Poll 엔티티
@@ -195,9 +195,9 @@ CREATE TABLE vote (
 
 ---
 
-## 트러블슈팅 경험
+### 트러블슈팅 경험
 
-### 🔍 Problem 1: Jest Mock 설정 오류 (403 Forbidden)
+#### 🔍 Problem 1: Jest Mock 설정 오류 (403 Forbidden)
 
 #### 문제 상황
 ```typescript
@@ -225,7 +225,7 @@ import { authenticate } from '@/middleware/authenticate';
 
 ---
 
-### 🔍 Problem 2: TypeORM 과도한 로깅 문제
+#### 🔍 Problem 2: TypeORM 과도한 로깅 문제
 
 #### 문제 상황
 ```bash
@@ -253,7 +253,7 @@ export const AppDataSource = new DataSource({
 
 ---
 
-### 🔍 Problem 3: Zod datetime() 메서드 호환성 문제
+#### 🔍 Problem 3: Zod datetime() 메서드 호환성 문제
 
 #### 문제 상황
 ```typescript
@@ -285,7 +285,7 @@ const schema = z.object({
 
 ---
 
-### 🔍 Problem 4: GitHub Actions CI/CD 권한 문제
+#### 🔍 Problem 4: GitHub Actions CI/CD 권한 문제
 
 #### 문제 상황
 ```yaml
@@ -305,7 +305,7 @@ Error: Resource not accessible by integration
 
 ---
 
-### 🔍 Problem 5: 테스트 UUID 형식 검증 실패
+#### 🔍 Problem 5: 테스트 UUID 형식 검증 실패
 
 #### 문제 상황
 ```typescript
@@ -331,7 +331,7 @@ const mockUserId = '550e8400-e29b-41d4-a716-446655440000';
 
 ---
 
-### 🔍 Problem 6: TypeScript Strict Mode와 TypeORM 충돌
+#### 🔍 Problem 6: TypeScript Strict Mode와 TypeORM 충돌
 
 #### 문제 상황
 ```typescript
@@ -362,7 +362,7 @@ export class Poll {
 
 ---
 
-### 🔍 Problem 7: PostgreSQL 관계 네이밍 문제
+#### 🔍 Problem 7: PostgreSQL 관계 네이밍 문제
 
 #### 문제 상황
 ```sql
@@ -395,7 +395,7 @@ class CustomNamingStrategy extends SnakeNamingStrategy {
 
 ---
 
-### 🔍 Problem 8: 투표 상태 자동 업데이트 로직 오류
+#### 🔍 Problem 8: 투표 상태 자동 업데이트 로직 오류
 
 #### 문제 상황
 ```typescript
@@ -447,7 +447,7 @@ async updateExpiredPolls() {
 
 ---
 
-### 🔍 Problem 9: 동별 권한 필터링 로직 오류
+#### 🔍 Problem 9: 동별 권한 필터링 로직 오류
 
 #### 문제 상황
 ```typescript
@@ -487,9 +487,9 @@ async getPolls(user: User, queryDto: GetPollsDto) {
 
 ---
 
-## 프로젝트 회고
+### 프로젝트 회고
 
-### 💡 배운 점
+#### 💡 배운 점
 
 #### 1. **체계적인 디버깅의 중요성**
 - 문제 발생 시 로그 분석 → 원인 파악 → 단계별 해결 프로세스 확립
