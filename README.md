@@ -1,7 +1,8 @@
 # [welive-project 개발 보고서]
 
 ## 🏢 Welive - 스마트 아파트 운영 시스템 (주민 투표 모듈)
-
+#### [배포 링크] (https://www.welive-test.online)
+#### [Swagger](https://api.welive-test.online/api/docs/)
 ### 📋 목차
 - [프로젝트 개요](#프로젝트-개요)
 - [기술 스택 및 개발 환경](#기술-스택-및-개발-환경)
