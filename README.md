@@ -1,4 +1,4 @@
-## [welive-project 개발 보고서]
+# [welive-project 개발 보고서]
 
 ### 🏢 Welive - 스마트 아파트 운영 시스템 (주민 투표 모듈)
 #### - [배포 링크] https://www.welive-test.online
